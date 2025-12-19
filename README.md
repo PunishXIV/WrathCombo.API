@@ -14,12 +14,10 @@ itself [here](https://github.com/PunishXIV/WrathCombo/blob/main/docs/IPC.md).
 
 This project is (currently) completely separately
 maintained from Wrath itself, so it's best to open
-issues here; but opening issue posts in the puni.sh
-server for Wrath is fine too - find that channel
+issues here; but opening issue posts in the
+[puni.sh server](https://discord.gg/Zzrcc8kmvy)
+for Wrath is fine too - find that channel
 [here](https://discord.com/channels/1001823907193552978/1271175826246865026).
-
-<a href="https://discord.gg/Zzrcc8kmvy" alt="Discord">
-    <img src="https://discordapp.com/api/guilds/1001823907193552978/embed.png?style=banner2" /></a>
 
 ## Changes
 
