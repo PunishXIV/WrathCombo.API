@@ -8,8 +8,8 @@
         <Company>Team Wrath</Company>
         <Description>Everything you need to work with Wrath Combo's IPC</Description>
         <PackageTags>wrathcombo;api;ffxiv;wrath;autorotation;auto-rotation;ipc</PackageTags>
-        <PackageProjectUrl>https://github.com/zbee/WrathCombo.API</PackageProjectUrl>
-        <RepositoryUrl>https://github.com/zbee/WrathCombo.API</RepositoryUrl>
+        <PackageProjectUrl>https://github.com/PunishXIV/WrathCombo.API</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/PunishXIV/WrathCombo.API</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
         <PackageLicenseExpression>AGPL-3.0-only</PackageLicenseExpression>
         <PackageReadmeFile>README.md</PackageReadmeFile>
