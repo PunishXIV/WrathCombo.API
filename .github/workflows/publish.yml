@@ -54,6 +54,7 @@ jobs:
           $tag = $env:GITHUB_REF.Split('/')[-1]
           $version = $tag.TrimStart('v')
           if (-not $version) { throw 'Tag name missing version' }
+          Write-Host "Derived version: $version"
           "PACKAGE_VERSION=$version" >> $env:GITHUB_ENV
 
       - name: Restore
@@ -65,12 +66,34 @@ jobs:
       - name: Pack
         run: dotnet pack $env:PROJECT_PATH -c Release --no-build -p:PackageVersion=$env:PACKAGE_VERSION -p:ContinuousIntegrationBuild=true -o $env:PACKAGE_OUTPUT
 
+      - name: Verify and locate packages
+        shell: pwsh
+        run: |
+          Write-Host "PACKAGE_OUTPUT=$env:PACKAGE_OUTPUT"
+          if (Test-Path "$env:PACKAGE_OUTPUT") {
+            Write-Host "Listing contents of $env:PACKAGE_OUTPUT";
+            Get-ChildItem -Path "$env:PACKAGE_OUTPUT" -Recurse | Format-Table -AutoSize FullName, Length
+          } else {
+            Write-Host "Package output directory missing: $env:PACKAGE_OUTPUT"
+          }
+
+          Write-Host "Searching for .nupkg under workspace: $env:GITHUB_WORKSPACE"
+          $nupkgs = Get-ChildItem -Path $env:GITHUB_WORKSPACE -Recurse -Filter '*.nupkg'
+          if (-not $nupkgs) {
+            Write-Host "No .nupkg found anywhere under $env:GITHUB_WORKSPACE"; exit 1
+          }
+          Write-Host "Found .nupkg files:";
+          $nupkgs | ForEach-Object { Write-Host $_.FullName }
+          $pkgDir = $nupkgs[0].Directory.FullName
+          Write-Host "Using package directory: $pkgDir"
+          "PKG_DIR=$pkgDir" >> $env:GITHUB_ENV
+
       - name: Push package to NuGet
         env:
           NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
         run: |
-          dotnet nuget push "$env:PACKAGE_OUTPUT/*.nupkg" --api-key $env:NUGET_API_KEY --source https://api.nuget.org/v3/index.json --skip-duplicate
-          dotnet nuget push "$env:PACKAGE_OUTPUT/*.snupkg" --api-key $env:NUGET_API_KEY --source https://api.nuget.org/v3/index.json --skip-duplicate
+          dotnet nuget push "$env:PKG_DIR/*.nupkg" --api-key $env:NUGET_API_KEY --source https://api.nuget.org/v3/index.json --skip-duplicate
+          dotnet nuget push "$env:PKG_DIR/*.snupkg" --api-key $env:NUGET_API_KEY --source https://api.nuget.org/v3/index.json --skip-duplicate
 
       - name: Upload packages as artifact
         uses: actions/upload-artifact@v4
