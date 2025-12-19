@@ -1,0 +1,76 @@
+﻿name: Publish NuGet on Tag push
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_call:
+    inputs:
+      dotnet-version:
+        description: '.NET SDK version'
+        required: false
+        default: '10.x.x'
+        type: string
+      project-path:
+        description: 'Path to the .csproj to pack'
+        required: false
+        default: 'WrathCombo.API.csproj'
+        type: string
+      package-output:
+        description: 'Output folder for packed packages'
+        required: false
+        default: 'bin/Release/nuget'
+        type: string
+    secrets:
+      NUGET_API_KEY:
+        description: 'API key for pushing to NuGet'
+        required: true
+
+permissions:
+  contents: read
+
+env:
+  DOTNET_VERSION: ${{ inputs.dotnet-version || '10.x.x' }}
+
+jobs:
+  pack-and-push:
+    runs-on: windows-latest
+    env:
+      PROJECT_PATH: ${{ inputs.project-path || 'WrathCombo.API.csproj' }}
+      PACKAGE_OUTPUT: ${{ inputs.package-output || 'bin/Release/nuget' }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+          dotnet-quality: preview
+
+      - name: Derive package version from tag
+        shell: pwsh
+        run: |
+          $tag = $env:GITHUB_REF.Split('/')[-1]
+          $version = $tag.TrimStart('v')
+          if (-not $version) { throw 'Tag name missing version' }
+          "PACKAGE_VERSION=$version" >> $env:GITHUB_ENV
+
+      - name: Restore
+        run: dotnet restore
+
+      - name: Pack
+        run: dotnet pack $env:PROJECT_PATH -c Release -p:PackageVersion=$env:PACKAGE_VERSION -p:ContinuousIntegrationBuild=true -o $env:PACKAGE_OUTPUT
+
+      - name: Push package
+        uses: NuGet/push@v1
+        with:
+          api-key: ${{ secrets.NUGET_API_KEY }}
+          packages-to-push: ${{ env.PACKAGE_OUTPUT }}/*.nupkg
+          source-url: https://api.nuget.org/v3/index.json
+
+      - name: Upload packages as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: nuget-packages
+          path: ${{ env.PACKAGE_OUTPUT }}/*
