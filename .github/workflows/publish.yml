@@ -99,7 +99,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          dotnet nuget push "$env:PKG_DIR/WrathCombo.API.*.nupkg" `
+          dotnet nuget push "$env:PKG_DIR\*.nupkg" `
             --api-key $env:GITHUB_TOKEN `
             --source "https://nuget.pkg.github.com/PunishXIV/index.json" `
             --skip-duplicate
