@@ -22,8 +22,6 @@ env:
 jobs:
   pack-and-push:
     runs-on: windows-latest
-    env:
-      DALAMUD_HOME: $HOME/.xlcore/dalamud/Hooks/dev
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -45,6 +43,7 @@ jobs:
       - name: Setup STG Dalamud
         id: download_stg_dalamud
         run: |
+          $env:DALAMUD_HOME = "$env:APPDATA\XIVLauncher\addon\Hooks\dev"
           curl -L https://goatcorp.github.io/dalamud-distrib/stg/latest.zip -o dalamud.zip
           mkdir -p ${{ env.DALAMUD_HOME }}
           unzip -o dalamud.zip -d ${{ env.DALAMUD_HOME }}
