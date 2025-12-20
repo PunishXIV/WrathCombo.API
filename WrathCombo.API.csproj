@@ -7,7 +7,7 @@
         <Authors>Ethan Henderson (zbee)</Authors>
         <Company>Team Wrath</Company>
         <Description>Everything you need to work with Wrath Combo's IPC</Description>
-        <PackageTags>wrathcombo;api;ffxiv;wrath;autorotation;auto-rotation;ipc</PackageTags>
+        <PackageTags>wrathcombo;auto-rotation;api;ffxiv</PackageTags>
         <PackageProjectUrl>https://github.com/PunishXIV/WrathCombo.API</PackageProjectUrl>
         <RepositoryUrl>https://github.com/PunishXIV/WrathCombo.API</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
