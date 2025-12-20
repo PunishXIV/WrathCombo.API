@@ -17,7 +17,7 @@ public static class AutoRotationConfigOptionExtensions
     {
         /// <summary>
         ///     Gets the expected value type for the given
-        ///     <see cref="API.Enum.AutoRotationConfigOption" />.
+        ///     <see cref="AutoRotationConfigOption" />.
         /// </summary>
         /// <value>
         ///     The option to get the value type for.
