@@ -1,3 +1,8 @@
+### `0.1.1` <sup>(2025-12-20)</sup>
+
+Marked `Utility` `WrathCombo.API.IPC.RawMethods` as obsolete,
+to be made internal in `1.1.0` (Wrapper methods are in place for these).
+
 ### `0.1.0` <sup>(2025-12-20)</sup>
 
 Added Raw IPC Subscriber Methods for all IPC endpoints.\
