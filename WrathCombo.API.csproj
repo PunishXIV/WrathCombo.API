@@ -21,6 +21,8 @@
         <NoPackageAnalysis>true</NoPackageAnalysis>
 
         <!-- Build -->
+        <Configurations>Debug;Release</Configurations>
+        <Platforms>x64</Platforms>
         <ProduceReferenceAssembly>false</ProduceReferenceAssembly>
         <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
         <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
