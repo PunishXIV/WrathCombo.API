@@ -15,11 +15,25 @@ public static partial class WrathIPCWrapper
         SafeInvokeRawMethod(() =>
             RawMethod.RequestBlacklist.InvokeAction(actionType, actionID, timeMs));
 
+    public static void RequestBlacklist
+        (ActionType actionType, uint actionID, TimeSpan timeMs) =>
+        SafeInvokeRawMethod(() =>
+            RawMethod.RequestBlacklist
+                .InvokeAction(actionType, actionID,
+                    (int)timeMs.TotalMilliseconds));
+
     public static void RequestActionUse
         (ActionType actionType, uint actionID, int timeMs, bool? isGcd) =>
         SafeInvokeRawMethod(() =>
             RawMethod.RequestActionUse
                 .InvokeAction(actionType, actionID, timeMs, isGcd));
+
+    public static void RequestActionUse
+        (ActionType actionType, uint actionID, TimeSpan timeMs, bool? isGcd) =>
+        SafeInvokeRawMethod(() =>
+            RawMethod.RequestActionUse
+                .InvokeAction(actionType, actionID,
+                    (int)timeMs.TotalMilliseconds, isGcd));
 
     public static float GetArtificialCooldown
         (ActionType actionType, uint actionID) =>
