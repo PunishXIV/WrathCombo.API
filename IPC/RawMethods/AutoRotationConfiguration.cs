@@ -3,6 +3,7 @@
 using Dalamud.Plugin.Ipc;
 using WrathCombo.API.Enum;
 
+// ReSharper disable MemberHidesStaticFromOuterClass
 // ReSharper disable RedundantSuppressNullableWarningExpression
 // ReSharper disable StaticMemberInitializerReferesToMemberBelow
 
@@ -15,9 +16,9 @@ public static partial class WrathIPCWrapper
     public partial class RawMethod
     {
         public static readonly
-            ICallGateSubscriber<object, object>
+            ICallGateSubscriber<object, object?>
             GetAutoRotationConfigState =
-                Interface!.GetIpcSubscriber<object, object>
+                Interface!.GetIpcSubscriber<object, object?>
                     ($"{WC}GetAutoRotationConfigState");
 
         public static readonly
