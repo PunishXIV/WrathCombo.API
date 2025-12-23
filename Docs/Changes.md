@@ -1,3 +1,9 @@
+## `0.3.0` <sup>(2025-12-23)</sup>
+
+Added `IDalamudPluginInterface` loading from ECommons, making
+`WrathIPCWrapper.InitWrapper()` no longer required (when using ECommons).\
+Renamed `WrathIPCWrapper.InitWrapper()` to just `.Init()`.
+
 ## `0.2.1` <sup>(2025-12-23)</sup>
 
 Fixed namespace of `ActionRequest` methods.
