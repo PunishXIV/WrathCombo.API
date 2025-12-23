@@ -1,3 +1,7 @@
+## `0.2.1` <sup>(2025-12-23)</sup>
+
+Fixed namespace of `ActionRequest` methods.
+
 ## `0.2.0` <sup>(2025-12-22)</sup>
 
 There are now wrapper methods for all Raw IPC Methods.\
