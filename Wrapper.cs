@@ -52,6 +52,9 @@ public static partial class WrathIPCWrapper
         set;
     }
 
+    /// <remarks>
+    ///     Not required if ECommons is present and initialized.
+    /// </remarks>
     public static void Init(IDalamudPluginInterface pluginInterface)
     {
         Interface = pluginInterface;
