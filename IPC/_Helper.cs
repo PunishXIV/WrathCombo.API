@@ -1,6 +1,7 @@
 ﻿#region
 
 using Dalamud.Plugin.Ipc.Exceptions;
+using WrathCombo.API.Enum;
 using WrathCombo.API.Error;
 
 #endregion
@@ -51,6 +52,9 @@ public static partial class WrathIPCWrapper
                     "error in using WrathCombo.IPC.",
                     ex);
         }
+
+        if (typeof(T) == typeof(SetResult))
+            return (T)(object)SetResult.IGNORED;
 
         return default;
     }

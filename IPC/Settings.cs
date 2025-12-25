@@ -59,12 +59,22 @@ public static partial class WrathIPCWrapper
     public static Dictionary<ComboTargetTypeKeys, ComboSimplicityLevelKeys?>
         IsCurrentJobConfiguredOn() =>
         SafeInvokeRawMethod(() =>
-            RawMethod.IsCurrentJobConfiguredOn.InvokeFunc());
+            RawMethod.IsCurrentJobConfiguredOn.InvokeFunc()) ??
+        new Dictionary<ComboTargetTypeKeys, ComboSimplicityLevelKeys?>
+        {
+            { ComboTargetTypeKeys.SingleTarget, null },
+            { ComboTargetTypeKeys.MultiTarget, null },
+        };
 
     public static Dictionary<ComboTargetTypeKeys, ComboSimplicityLevelKeys?>
         IsCurrentJobAutoModeOn() =>
         SafeInvokeRawMethod(() =>
-            RawMethod.IsCurrentJobAutoModeOn.InvokeFunc());
+            RawMethod.IsCurrentJobAutoModeOn.InvokeFunc()) ??
+        new Dictionary<ComboTargetTypeKeys, ComboSimplicityLevelKeys?>
+        {
+            { ComboTargetTypeKeys.SingleTarget, null },
+            { ComboTargetTypeKeys.MultiTarget, null },
+        };
 
     #endregion
 
