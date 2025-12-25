@@ -1,3 +1,10 @@
+## `0.4.0` <sup>(2025-12-24)</sup>
+
+Added `suppressedErrorTypes` parameter to `.Init()`, allowing any combination of
+Exceptions not be re-thrown when caught.\
+Added `.Init()` overload that only has `suppressedErrorTypes` and no
+`pluginInterface`.
+
 ## `0.3.0` <sup>(2025-12-23)</sup>
 
 Added `IDalamudPluginInterface` loading from ECommons, making
