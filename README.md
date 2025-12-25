@@ -21,7 +21,9 @@ It's best to open issues here; but opening issue posts in the
 
 ## Changes
 
-See [Docs/Changes.md](/Docs/Changes.md) for a changelog.
+See
+[Docs/Changes.md](https://github.com/PunishXIV/WrathCombo.API/blob/main/Docs/Changes.md)
+for the changelog.
 
 > [!TIP]
 > You can keep up to date with the latest changes to the IPC by subscribing to the
@@ -33,7 +35,9 @@ See [Docs/Changes.md](/Docs/Changes.md) for a changelog.
 > https://github.com/PunishXIV/WrathCombo.API/commits/main/Docs/Changes.md.atom
 > ```
 >
-> <br/>
+>
+> ---
+>
 >
 > Wrath Combo IPC Documentation feed:
 > ```
