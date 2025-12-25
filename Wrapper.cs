@@ -81,7 +81,7 @@ public static partial class WrathIPCWrapper
     /// <remarks>
     ///     Would require ECommons to be present and initialized.
     /// </remarks>
-    public static void Init(ErrorType suppressedErrorTypes = ErrorType.None)
+    public static void Init(ErrorType suppressedErrorTypes)
     {
         SuppressedErrorTypes = suppressedErrorTypes;
     }
