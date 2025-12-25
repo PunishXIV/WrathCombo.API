@@ -9,7 +9,7 @@ namespace WrathCombo.API;
 
 public static partial class WrathIPCWrapper
 {
-    private static T SafeInvokeRawMethod<T>(Func<T> ipcCall)
+    private static T? SafeInvokeRawMethod<T>(Func<T> ipcCall)
     {
         if (Interface == null)
             throw new UninitializedException(
@@ -23,30 +23,36 @@ public static partial class WrathIPCWrapper
                                       IpcValueNullError or
                                       IpcLengthMismatchError)
         {
-            throw new APIBehindException(
-                "WrathCombo.API needs updated; " +
-                "it is behind WrathCombo.IPC: invalid signatures.",
-                ex);
+            if (!Suppressing(ErrorType.APIBehindIPC))
+                throw new APIBehindException(
+                    "WrathCombo.API needs updated; " +
+                    "it is behind WrathCombo.IPC: invalid signatures.",
+                    ex);
         }
         catch (IpcError ex) when (ex is IpcNotReadyError)
         {
-            throw new UninitializedException(
-                "WrathCombo.IPC isn't ready.", ex);
+            if (!Suppressing(ErrorType.IPCNotReady))
+                throw new UninitializedException(
+                    "WrathCombo.IPC isn't ready.", ex);
         }
         catch (IpcError ex)
         {
-            throw new IPCException(
-                "WrathCombo.API encountered an IPC error " +
-                "in using WrathCombo.IPC.",
-                ex);
+            if (!Suppressing(ErrorType.GenericIpc))
+                throw new IPCException(
+                    "WrathCombo.API encountered an IPC error " +
+                    "in using WrathCombo.IPC.",
+                    ex);
         }
         catch (Exception ex)
         {
-            throw new UnexpectedException(
-                "WrathCombo.API encountered an unexpected " +
-                "error in using WrathCombo.IPC.",
-                ex);
+            if (!Suppressing(ErrorType.Unexpected))
+                throw new UnexpectedException(
+                    "WrathCombo.API encountered an unexpected " +
+                    "error in using WrathCombo.IPC.",
+                    ex);
         }
+
+        return default;
     }
 
     private static void SafeInvokeRawMethod(Action ipcCall)

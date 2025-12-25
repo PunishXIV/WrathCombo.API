@@ -9,6 +9,17 @@ namespace WrathCombo.API;
 
 public static partial class WrathIPCWrapper
 {
+    [Flags]
+    public enum ErrorType
+    {
+        None         = 0,
+        APIBehindIPC = 1 << 0,
+        IPCNotReady  = 1 << 1,
+        GenericIpc   = 1 << 2,
+        Unexpected   = 1 << 3,
+        All          = ~0,
+    }
+
     private static IDalamudPluginInterface? Interface
     {
         get
@@ -52,11 +63,26 @@ public static partial class WrathIPCWrapper
         set;
     }
 
+    private static ErrorType SuppressedErrorTypes { get; set; }
+
+    private static bool Suppressing(ErrorType flags) =>
+        SuppressedErrorTypes.HasFlag(flags);
+
     /// <remarks>
     ///     Not required if ECommons is present and initialized.
     /// </remarks>
-    public static void Init(IDalamudPluginInterface pluginInterface)
+    public static void Init(IDalamudPluginInterface pluginInterface,
+        ErrorType suppressedErrorTypes = ErrorType.None)
     {
-        Interface = pluginInterface;
+        Interface            = pluginInterface;
+        SuppressedErrorTypes = suppressedErrorTypes;
+    }
+
+    /// <remarks>
+    ///     Would require ECommons to be present and initialized.
+    /// </remarks>
+    public static void Init(ErrorType suppressedErrorTypes = ErrorType.None)
+    {
+        SuppressedErrorTypes = suppressedErrorTypes;
     }
 }
