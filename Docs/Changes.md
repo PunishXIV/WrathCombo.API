@@ -1,3 +1,9 @@
+## `0.4.1` <sup>(2025-12-24)</sup>
+
+Added correct fallback values when error types are suppressed,
+primarily for `IsCurrentJobConfiguredOn`, `IsCurrentJobAutoModeOn`, and `SetResult`
+methods.
+
 ## `0.4.0` <sup>(2025-12-24)</sup>
 
 Added `suppressedErrorTypes` parameter to `.Init()`, allowing any combination of
