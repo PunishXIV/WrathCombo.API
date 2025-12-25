@@ -1,8 +1,10 @@
 ﻿# WrathCombo.API
 
 WrathCombo.API provides the enum and similar data
-used by [Wrath Combo's](https://github.com/PunishXIV/WrathCombo) IPC (read: API), and
-(eventually) also the IPC Methods themselves.\
+used by [Wrath Combo's](https://github.com/PunishXIV/WrathCombo) IPC (read: API), the
+IPC Methods themselves, and wrappers for those IPC
+Methods that are typed more strongly than what
+Dalamud IPC allows for.\
 All in the sake of not having to copy over
 signatures, data, or keep up with the IPC changelog
 yourself.
