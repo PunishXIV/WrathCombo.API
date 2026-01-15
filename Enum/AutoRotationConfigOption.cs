@@ -78,5 +78,5 @@ public enum AutoRotationConfigOption
     BypassQuest = 21,
 
     [ConfigValueType(typeof(bool))]
-    BypassFate = 22,
+    BypassFATE = 22,
 }
