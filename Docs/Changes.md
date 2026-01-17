@@ -1,3 +1,9 @@
+## `0.4.4` <sup>(2026-01-17)</sup>
+
+Added `Enum.AutoRotationConfigOption.BypassQuest` and
+`BypassFATE` options, to get around `InCombatOnly`.\
+(available in WrathCombo `1.0.3.9` and later)
+
 ## `0.4.3` <sup>(2025-12-30)</sup>
 
 Added `Enum.AutoRotationConfigOption.DPSAlwaysHardTarget` and
