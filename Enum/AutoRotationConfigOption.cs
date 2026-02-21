@@ -64,4 +64,6 @@ public enum AutoRotationConfigOption
     ///     <see cref="InCombatOnly" /> is what is being bypassed here.
     /// </remarks>
     [ConfigValueType(typeof(bool))] BypassFATE = 22,
+
+    [ConfigValueType(typeof(bool))] IgnoreRangeInBoss = 23,
 }
