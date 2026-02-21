@@ -1,3 +1,9 @@
+## `0.5.4` <sup>(2026-02-21)</sup>
+
+Added `Enum.AutoRotationConfigOption.IgnoreRangeInBoss`, to get around
+(non-IPC settings) `MaxDistance`.\
+(available in WrathCombo `1.0.3.17` and later)
+
 ## `0.5.1` <sup>(2026-01-19)</sup>
 
 Added an extension to `Enum.CancellationReason` to get the Description.
