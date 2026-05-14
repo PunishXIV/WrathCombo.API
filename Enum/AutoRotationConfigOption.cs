@@ -66,4 +66,6 @@ public enum AutoRotationConfigOption
     [ConfigValueType(typeof(bool))] BypassFATE = 22,
 
     [ConfigValueType(typeof(bool))] IgnoreRangeInBoss = 23,
+
+    [ConfigValueType(typeof(bool))] UnTargetAndDisableForPenalty = 24,
 }
