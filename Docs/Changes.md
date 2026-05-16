@@ -1,3 +1,9 @@
+## `0.5.5 <sup>(2026-05-16)</sup>
+
+Added `Enum.AutoRotationConfigOption.UnTargetAndDisableForPenalty`,
+to handle Pyretic-like mechanics.\
+(available in WrathCombo `1.0.4.6` and later)
+
 ## `0.5.4` <sup>(2026-02-21)</sup>
 
 Added `Enum.AutoRotationConfigOption.IgnoreRangeInBoss`, to get around
