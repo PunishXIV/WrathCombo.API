@@ -68,10 +68,4 @@ public enum AutoRotationConfigOption
     [ConfigValueType(typeof(bool))] IgnoreRangeInBoss = 23,
 
     [ConfigValueType(typeof(bool))] UnTargetAndDisableForPenalty = 24,
-
-    /// <remarks>
-    ///     Falls back to a Phoenix Down on dead party members when the player
-    ///     has no native raise available (or it is on cooldown / out of MP).
-    /// </remarks>
-    [ConfigValueType(typeof(bool))] AutoRezWithPhoenixDown = 25,
 }
