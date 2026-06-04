@@ -1,7 +1,6 @@
 ## `0.5.6` <sup>(2026-06-04)</sup>
 
-Added Variant Dungeon IPC helpers for external plugins (e.g. AutoDuty):
-
+Added Variant Dungeon IPC helpers
 - `Enum.VariantJobRoleKeys`
 - `GetVariantParentComboName(VariantJobRoleKeys)`
 - `GetVariantOptionNames(VariantJobRoleKeys)`
