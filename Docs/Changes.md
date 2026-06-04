@@ -1,10 +1,10 @@
 ## `0.5.6` <sup>(2026-06-04)</sup>
 
-Added Variant Dungeon IPC helpers
-- `Enum.VariantJobRoleKeys`
-- `GetVariantParentComboName(VariantJobRoleKeys)`
-- `GetVariantOptionNames(VariantJobRoleKeys)`
-- `SetVariantReadyForRole(Guid, VariantJobRoleKeys, bool)`
+Added Variant Dungeon IPC helpers:
+- `GetVariantParentComboName(uint jobID)`
+- `GetVariantOptionNames(uint jobID)`
+- `SetVariantReadyForJob(Guid, uint jobID, bool)`
+- `SetCurrentJobAutoRotationReady(Guid, bool enableVariant)` — optional Variant enable for the current job's role
 
 ## `0.5.5 <sup>(2026-05-16)</sup>
 

@@ -44,9 +44,10 @@ public static partial class WrathIPCWrapper
         SafeInvokeRawMethod(() =>
             RawMethod.IsCurrentJobAutoRotationReady.InvokeFunc());
 
-    public static SetResult SetCurrentJobAutoRotationReady(Guid lease) =>
+    public static SetResult SetCurrentJobAutoRotationReady
+        (Guid lease, bool enableVariant = false) =>
         SafeInvokeRawMethod(() =>
-            RawMethod.SetCurrentJobAutoRotationReady.InvokeFunc(lease));
+            RawMethod.SetCurrentJobAutoRotationReady.InvokeFunc(lease, enableVariant));
 
     public static void ReleaseControl(Guid lease) =>
         SafeInvokeRawMethod(() =>
@@ -111,18 +112,18 @@ public static partial class WrathIPCWrapper
             RawMethod.SetComboOptionState
                 .InvokeFunc(lease, optionName, comboState));
 
-    public static string? GetVariantParentComboName(VariantJobRoleKeys role) =>
+    public static string? GetVariantParentComboName(uint jobID) =>
         SafeInvokeRawMethod(() =>
-            RawMethod.GetVariantParentComboName.InvokeFunc(role));
+            RawMethod.GetVariantParentComboName.InvokeFunc(jobID));
 
-    public static List<string>? GetVariantOptionNames(VariantJobRoleKeys role) =>
+    public static List<string>? GetVariantOptionNames(uint jobID) =>
         SafeInvokeRawMethod(() =>
-            RawMethod.GetVariantOptionNames.InvokeFunc(role));
+            RawMethod.GetVariantOptionNames.InvokeFunc(jobID));
 
-    public static SetResult SetVariantReadyForRole
-        (Guid lease, VariantJobRoleKeys role, bool enabled = true) =>
+    public static SetResult SetVariantReadyForJob
+        (Guid lease, uint jobID, bool enabled = true) =>
         SafeInvokeRawMethod(() =>
-            RawMethod.SetVariantReadyForRole.InvokeFunc(lease, role, enabled));
+            RawMethod.SetVariantReadyForJob.InvokeFunc(lease, jobID, enabled));
 
     #endregion
 }

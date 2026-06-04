@@ -87,9 +87,9 @@ public static partial class WrathIPCWrapper
         [Obsolete("Use WrathIPCWrapper.SetCurrentJobAutoRotationReady instead. " +
                   "Will be made internal in 1.1.0.")]
         public static readonly
-            ICallGateSubscriber<Guid, SetResult>
+            ICallGateSubscriber<Guid, bool, SetResult>
             SetCurrentJobAutoRotationReady =
-                Interface!.GetIpcSubscriber<Guid, SetResult>
+                Interface!.GetIpcSubscriber<Guid, bool, SetResult>
                     ($"{WC}SetCurrentJobAutoRotationReady");
 
         /// <remarks>
@@ -191,26 +191,26 @@ public static partial class WrathIPCWrapper
         [Obsolete("Use WrathIPCWrapper.GetVariantParentComboName instead. " +
                   "Will be made internal in 1.1.0.")]
         public static readonly
-            ICallGateSubscriber<VariantJobRoleKeys, string?>
+            ICallGateSubscriber<uint, string?>
             GetVariantParentComboName =
-                Interface!.GetIpcSubscriber<VariantJobRoleKeys, string?>
+                Interface!.GetIpcSubscriber<uint, string?>
                     ($"{WC}GetVariantParentComboName");
 
         [Obsolete("Use WrathIPCWrapper.GetVariantOptionNames instead. " +
                   "Will be made internal in 1.1.0.")]
         public static readonly
-            ICallGateSubscriber<VariantJobRoleKeys, List<string>?>
+            ICallGateSubscriber<uint, List<string>?>
             GetVariantOptionNames =
-                Interface!.GetIpcSubscriber<VariantJobRoleKeys, List<string>?>
+                Interface!.GetIpcSubscriber<uint, List<string>?>
                     ($"{WC}GetVariantOptionNames");
 
-        [Obsolete("Use WrathIPCWrapper.SetVariantReadyForRole instead. " +
+        [Obsolete("Use WrathIPCWrapper.SetVariantReadyForJob instead. " +
                   "Will be made internal in 1.1.0.")]
         public static readonly
-            ICallGateSubscriber<Guid, VariantJobRoleKeys, bool, SetResult>
-            SetVariantReadyForRole =
-                Interface!.GetIpcSubscriber<Guid, VariantJobRoleKeys, bool, SetResult>
-                    ($"{WC}SetVariantReadyForRole");
+            ICallGateSubscriber<Guid, uint, bool, SetResult>
+            SetVariantReadyForJob =
+                Interface!.GetIpcSubscriber<Guid, uint, bool, SetResult>
+                    ($"{WC}SetVariantReadyForJob");
 
         #endregion
     }
