@@ -188,6 +188,30 @@ public static partial class WrathIPCWrapper
                 Interface!.GetIpcSubscriber<Guid, string, bool, SetResult>
                     ($"{WC}SetComboOptionState");
 
+        [Obsolete("Use WrathIPCWrapper.GetVariantParentComboName instead. " +
+                  "Will be made internal in 1.1.0.")]
+        public static readonly
+            ICallGateSubscriber<VariantJobRoleKeys, string?>
+            GetVariantParentComboName =
+                Interface!.GetIpcSubscriber<VariantJobRoleKeys, string?>
+                    ($"{WC}GetVariantParentComboName");
+
+        [Obsolete("Use WrathIPCWrapper.GetVariantOptionNames instead. " +
+                  "Will be made internal in 1.1.0.")]
+        public static readonly
+            ICallGateSubscriber<VariantJobRoleKeys, List<string>?>
+            GetVariantOptionNames =
+                Interface!.GetIpcSubscriber<VariantJobRoleKeys, List<string>?>
+                    ($"{WC}GetVariantOptionNames");
+
+        [Obsolete("Use WrathIPCWrapper.SetVariantReadyForRole instead. " +
+                  "Will be made internal in 1.1.0.")]
+        public static readonly
+            ICallGateSubscriber<Guid, VariantJobRoleKeys, bool, SetResult>
+            SetVariantReadyForRole =
+                Interface!.GetIpcSubscriber<Guid, VariantJobRoleKeys, bool, SetResult>
+                    ($"{WC}SetVariantReadyForRole");
+
         #endregion
     }
 }

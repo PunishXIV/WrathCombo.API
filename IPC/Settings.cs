@@ -111,5 +111,18 @@ public static partial class WrathIPCWrapper
             RawMethod.SetComboOptionState
                 .InvokeFunc(lease, optionName, comboState));
 
+    public static string? GetVariantParentComboName(VariantJobRoleKeys role) =>
+        SafeInvokeRawMethod(() =>
+            RawMethod.GetVariantParentComboName.InvokeFunc(role));
+
+    public static List<string>? GetVariantOptionNames(VariantJobRoleKeys role) =>
+        SafeInvokeRawMethod(() =>
+            RawMethod.GetVariantOptionNames.InvokeFunc(role));
+
+    public static SetResult SetVariantReadyForRole
+        (Guid lease, VariantJobRoleKeys role, bool enabled = true) =>
+        SafeInvokeRawMethod(() =>
+            RawMethod.SetVariantReadyForRole.InvokeFunc(lease, role, enabled));
+
     #endregion
 }
