@@ -1,3 +1,11 @@
+## `0.5.6` <sup>(2026-06-04)</sup>
+
+Added Variant Dungeon IPC helpers:
+- `GetVariantParentComboName(uint jobID)`
+- `GetVariantOptionNames(uint jobID)`
+- `SetVariantReadyForJob(Guid, uint jobID, bool)`
+  (available in WrathCombo `1.0.4.8` and later)
+
 ## `0.5.5 <sup>(2026-05-16)</sup>
 
 Added `Enum.AutoRotationConfigOption.UnTargetAndDisableForPenalty`,
