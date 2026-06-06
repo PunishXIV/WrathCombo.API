@@ -44,8 +44,7 @@ public static partial class WrathIPCWrapper
         SafeInvokeRawMethod(() =>
             RawMethod.IsCurrentJobAutoRotationReady.InvokeFunc());
 
-    public static SetResult SetCurrentJobAutoRotationReady
-        (Guid lease, bool enableVariant = false) =>
+    public static SetResult SetCurrentJobAutoRotationReady(Guid lease) =>
         SafeInvokeRawMethod(() =>
             RawMethod.SetCurrentJobAutoRotationReady.InvokeFunc(lease));
 
