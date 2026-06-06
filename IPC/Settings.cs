@@ -47,7 +47,7 @@ public static partial class WrathIPCWrapper
     public static SetResult SetCurrentJobAutoRotationReady
         (Guid lease, bool enableVariant = false) =>
         SafeInvokeRawMethod(() =>
-            RawMethod.SetCurrentJobAutoRotationReady.InvokeFunc(lease, enableVariant));
+            RawMethod.SetCurrentJobAutoRotationReady.InvokeFunc(lease));
 
     public static void ReleaseControl(Guid lease) =>
         SafeInvokeRawMethod(() =>
@@ -63,8 +63,8 @@ public static partial class WrathIPCWrapper
             RawMethod.IsCurrentJobConfiguredOn.InvokeFunc()) ??
         new Dictionary<ComboTargetTypeKeys, ComboSimplicityLevelKeys?>
         {
-            { ComboTargetTypeKeys.SingleTarget, null },
-            { ComboTargetTypeKeys.MultiTarget, null },
+            {ComboTargetTypeKeys.SingleTarget, null},
+            {ComboTargetTypeKeys.MultiTarget, null},
         };
 
     public static Dictionary<ComboTargetTypeKeys, ComboSimplicityLevelKeys?>
@@ -73,8 +73,8 @@ public static partial class WrathIPCWrapper
             RawMethod.IsCurrentJobAutoModeOn.InvokeFunc()) ??
         new Dictionary<ComboTargetTypeKeys, ComboSimplicityLevelKeys?>
         {
-            { ComboTargetTypeKeys.SingleTarget, null },
-            { ComboTargetTypeKeys.MultiTarget, null },
+            {ComboTargetTypeKeys.SingleTarget, null},
+            {ComboTargetTypeKeys.MultiTarget, null},
         };
 
     #endregion

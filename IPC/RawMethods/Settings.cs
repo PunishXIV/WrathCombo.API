@@ -87,9 +87,9 @@ public static partial class WrathIPCWrapper
         [Obsolete("Use WrathIPCWrapper.SetCurrentJobAutoRotationReady instead. " +
                   "Will be made internal in 1.1.0.")]
         public static readonly
-            ICallGateSubscriber<Guid, bool, SetResult>
+            ICallGateSubscriber<Guid, SetResult>
             SetCurrentJobAutoRotationReady =
-                Interface!.GetIpcSubscriber<Guid, bool, SetResult>
+                Interface!.GetIpcSubscriber<Guid, SetResult>
                     ($"{WC}SetCurrentJobAutoRotationReady");
 
         /// <remarks>
