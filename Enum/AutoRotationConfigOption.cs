@@ -68,4 +68,6 @@ public enum AutoRotationConfigOption
     [ConfigValueType(typeof(bool))] IgnoreRangeInBoss = 23,
 
     [ConfigValueType(typeof(bool))] UnTargetAndDisableForPenalty = 24,
+
+    [ConfigValueType(typeof(bool))] IncludeShields = 25,
 }
