@@ -1,10 +1,3 @@
-## `0.5.7` <sup>(2026-06-26)</sup>
-
-Added read-only upcoming positional hint IPC:
-- `GetUpcomingPositionalHint()` / `SubscribeUpcomingPositionalHint()`
-- `Enum.PositionalDirection`
-- `PositionalHintSnapshot` wire decoder
-
 ## `0.5.6` <sup>(2026-06-04)</sup>
 
 Added Variant Dungeon IPC helpers:
