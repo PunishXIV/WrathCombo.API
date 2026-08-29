@@ -62,8 +62,8 @@ public static partial class WrathIPCWrapper
             RawMethod.IsCurrentJobConfiguredOn.InvokeFunc()) ??
         new Dictionary<ComboTargetTypeKeys, ComboSimplicityLevelKeys?>
         {
-            {ComboTargetTypeKeys.SingleTarget, null},
-            {ComboTargetTypeKeys.MultiTarget, null},
+            {ComboTargetTypeKeys.SingleTargetDPS, null},
+            {ComboTargetTypeKeys.AoEDPS, null},
         };
 
     public static Dictionary<ComboTargetTypeKeys, ComboSimplicityLevelKeys?>
@@ -72,8 +72,8 @@ public static partial class WrathIPCWrapper
             RawMethod.IsCurrentJobAutoModeOn.InvokeFunc()) ??
         new Dictionary<ComboTargetTypeKeys, ComboSimplicityLevelKeys?>
         {
-            {ComboTargetTypeKeys.SingleTarget, null},
-            {ComboTargetTypeKeys.MultiTarget, null},
+            {ComboTargetTypeKeys.SingleTargetDPS, null},
+            {ComboTargetTypeKeys.AoEDPS, null},
         };
 
     #endregion
@@ -123,6 +123,20 @@ public static partial class WrathIPCWrapper
         (Guid lease, uint jobID, bool enabled = true) =>
         SafeInvokeRawMethod(() =>
             RawMethod.SetVariantReadyForJob.InvokeFunc(lease, jobID, enabled));
+
+    public static string? GetOccultParentComboName(uint phantomJobID) =>
+        SafeInvokeRawMethod(() =>
+            RawMethod.GetOccultParentComboName.InvokeFunc(phantomJobID));
+
+    public static List<string>? GetOccultOptionNames(uint phantomJobID) =>
+        SafeInvokeRawMethod(() =>
+            RawMethod.GetOccultOptionNames.InvokeFunc(phantomJobID));
+
+    public static SetResult SetOccultReadyForPhantomJob
+        (Guid lease, uint phantomJobID, bool enabled = true) =>
+        SafeInvokeRawMethod(() =>
+            RawMethod.SetOccultReadyForPhantomJob
+                .InvokeFunc(lease, phantomJobID, enabled));
 
     #endregion
 }
